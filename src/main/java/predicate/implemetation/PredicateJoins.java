@@ -19,7 +19,16 @@ public class PredicateJoins {
 
 
     public static void main(String[] args) {
-        numberTypeDetector(i->(i%2==0),new int[]{0,1,2,3,4,5,6,7,8,9});
+       Predicate<Integer> predicate= i-> (i%2==0);
+
+        Predicate<Integer> multiple_of_5= i-> (i%5==0);
+        //numberTypeDetector(predicate.negate(),new int[]{0,1,2,3,4,5,6,7,8,9});
+
+        //numberTypeDetector(predicate.and(I->I>5),new int[]{0,1,2,3,4,5,6,7,8,9});
+
+        //numberTypeDetector(predicate.and(I->I>5),new int[]{0,1,2,3,4,5,6,7,8,9});
+
+        numberTypeDetector((multiple_of_5.or(R->R%3==0)),new int[]{0,1,2,3,4,5,6,7,8,9});
     }
 }
 
